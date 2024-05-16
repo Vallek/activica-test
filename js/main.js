@@ -24,7 +24,7 @@ function scrollSteps(el) {
 	const drag = (ev) => isDrag && (el.scrollLeft -= ev.movementX);
 
 	stepsSlider.addEventListener('pointerdown', startDrag);
-	stepsSlider.addEventListener('pointerup', endDrag);
+	window.addEventListener('pointerup', endDrag);
 	window.addEventListener('pointermove', drag);
 }
 scrollSteps(stepsSlider);
