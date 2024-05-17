@@ -12,7 +12,9 @@ const action = document.querySelector('.header__action');
 let arr = [];
 arr.push(menu, about, contacts, action);
 
-popupBtn.addEventListener('click', () => {
+popupBtn.addEventListener('click', handleMenu); 
+
+function handleMenu() {
 	let hidden = content.classList.contains('no-menu');
 	if (!hidden) {
 		for (let el of arr) {
@@ -27,7 +29,7 @@ popupBtn.addEventListener('click', () => {
 			popupBtn.classList.add('header__popup-btn_close');
 			content.classList.remove('no-menu');
 	}
-});
+}
 
 function hideNav() {
 	for (let el of arr) {
