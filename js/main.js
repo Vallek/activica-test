@@ -1,6 +1,7 @@
 'use strict';
 
 // Dropdown main menu on mobile
+const header = document.querySelector('.header');
 const popupBtn = document.querySelector('.header__popup-btn');
 const menu = document.querySelector('.header__menu');
 const content = document.querySelector('.header__content');
@@ -45,6 +46,15 @@ function hideNav() {
 }
 hideNav();
 window.addEventListener('resize', hideNav);
+
+// Close when click outside
+document.addEventListener('click', (el) => {
+	let target = el.target;
+	if (!header.contains(target)) {
+		popupBtn.classList.remove('header__popup-btn_close');
+		hideNav();
+	}
+});
 
 // Drag steps
 const stepsSlider = document.querySelector('.steps__list');
