@@ -93,7 +93,6 @@ img {
 
 @media screen and (max-width: 1360px) {
 	.header__menu {
-		/* display: none; */
 		width: 100%;
 		position: absolute;
 		bottom: 0;
@@ -108,7 +107,8 @@ img {
 	padding: 20px 0;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 65px;
+	justify-content: space-between;
+	row-gap: 65px;
 }
 
 @media screen and (max-width: 1360px) {
