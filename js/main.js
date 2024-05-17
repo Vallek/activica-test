@@ -11,7 +11,7 @@ const action = document.querySelector('.header__action');
 
 // Elemtns to hide on mobile
 let arr = [];
-arr.push(menu, about, contacts, action);
+arr.push(menu, about, contacts);
 
 popupBtn.addEventListener('click', handleMenu); 
 
@@ -21,12 +21,21 @@ function handleMenu() {
 		for (let el of arr) {
 			el.classList.add('visually-hidden');
 		}
+		if (window.innerWidth <= 768) {
+			action.classList.add('visually-hidden');
+		}
+		action.classList.remove('in-menu');
 		popupBtn.classList.remove('header__popup-btn_close');
 		content.classList.add('no-menu');
-	} else {
+	} 
+	else {
 			for (let el of arr) {
 				el.classList.remove('visually-hidden');
 			}
+			if (window.innerWidth <= 768) {
+				action.classList.remove('visually-hidden');
+			}
+			action.classList.add('in-menu');
 			popupBtn.classList.add('header__popup-btn_close');
 			content.classList.remove('no-menu');
 	}
@@ -34,14 +43,19 @@ function handleMenu() {
 
 function hideNav() {
 	for (let el of arr) {
-		if (el != null &&
-		window.innerWidth <= 1400) {
+		if (window.innerWidth <= 1400) {
 			el.classList.add('visually-hidden');
 			content.classList.add('no-menu');
-		} else {
+		}
+		else {
 			el.classList.remove('visually-hidden');
 			content.classList.remove('no-menu');
 		}
+	}
+	if (window.innerWidth <= 768) {
+		action.classList.add('visually-hidden');
+	} else {
+		action.classList.remove('visually-hidden');
 	}
 }
 hideNav();

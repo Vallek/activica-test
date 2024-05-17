@@ -75,7 +75,7 @@ img {
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.03);
 	position: sticky;
 	top: 0;
-	z-index: 1;
+	z-index: 3;
 }
 
 .header__content {
@@ -151,9 +151,15 @@ img {
 	}
 }
 
-@media screen and (max-width: 1360px) {
-	.header__about {
-		/* display: none; */
+.logo__img {
+	width: 255px;
+	height: 50px;
+}
+
+@media screen and (max-width: 400px) {
+	.logo__img {
+		width: 205px;
+		height: 40px;
 	}
 }
 
@@ -243,18 +249,6 @@ img {
 	background-color: var(--red-hover);
 }
 
-@media screen and (max-width: 1360px) {
-	.header__action {
-		margin-left: auto;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.header__action {
-		/* display: none; */
-	}
-}
-
 /* Popup menu */
 .header__popup-btn {
 	align-self: center;
@@ -315,9 +309,10 @@ img {
 		margin-left: 0;
 	}
 	.header__action {
-		grid-row: 4 / 5;
-		grid-column: 2 / 3;
+		grid-row: 1 / 2;
+		grid-column: 3 / 4;
 		margin-right: 0;
+		margin-left: auto;
 	}
 	.header__popup-btn {
 		grid-row: 1 / 2;
@@ -326,9 +321,22 @@ img {
 	}
 }
 
+@media screen and (max-width: 768px) {
+	.header__action {
+		grid-row: 4 / 5;
+		grid-column: 2 / 3;
+	}
+}
+
 .no-menu {
 	row-gap: 0;
 	padding: 20px 20px 20px 20px;
+}
+
+.in-menu {
+	grid-row: 4 / 5;
+	grid-column: 2 / 3;
+	margin-left: none;
 }
 
 /* Intro */
@@ -351,7 +359,7 @@ img {
 
 @media screen and (max-width: 768px) {
 	.intro {
-		
+		background-image: none;
 	}
 }
 
@@ -359,6 +367,28 @@ img {
 	max-width: 1360px;
 	margin: 0 auto;
 	padding: 120px 20px;
+}
+
+@media screen and (max-width: 1400px) {
+	.intro__content {
+		padding: 130px 20px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.intro__content {
+		min-height: 700px;
+		background-image: url('../img/car_compr.png'), url('../img/bg-circle.svg');
+		background-repeat: no-repeat;
+		background-size: 40%, 50%;
+		background-position: 20% 85%, 50% 95%;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.intro__content {
+		padding: 100px 20px;
+	}
 }
 
 .intro__info {
@@ -377,6 +407,18 @@ img {
 @media screen and (max-width: 1360px) {
 	.intro__heading {
 		font-size: 40px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.intro__heading {
+		margin-bottom: 30px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.intro__heading {
+		font-size: 30px;
 	}
 }
 
@@ -545,6 +587,13 @@ img {
 	}
 }
 
+@media screen and (max-width: 660px) {
+	.assess {
+		background-size: 70%;
+		background-position: 50% 90%;
+	}
+}
+
 .assess__graph {
 	align-self: stretch;
 	flex: 1 1 625px;
@@ -556,6 +605,24 @@ img {
 	background-position: 100% 100%;
 }
 
+@media screen and (max-width: 660px) {
+	.assess__graph {
+		background-position: 50% 50%;
+		background-size: 444px 247px;
+		/* max-width: 444px;
+		min-height: 247px; */
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.assess__graph {
+		background-position: 50% 50%;
+		background-size: 274px 152px;
+		max-width: 274px;
+		min-height: 152px;
+	}
+}
+
 .assess__list {
 	height: 100%;
 	list-style: none;
@@ -564,28 +631,56 @@ img {
 	position: relative;
 }
 
+@media screen and (max-width: 660px) {
+	.assess__list {
+		max-width: 444px;
+		margin: 0 auto;
+	}
+}
+
 .assess__item {
 	position: absolute;
+}
+
+@media screen and (max-width: 660px) {
+	.assess__item {
+		width: 57px;
+		height: 57px;
+	}
 }
 
 .assess__item_salon {
 	top: -40px;
 	right: 260px;
 }
-
 .assess__item_tech {
 	top: 40px;
 	left: 0;
 }
-
 .assess__item_body {
 	top: 110px;
   right: 90px;
 }
-
 .assess__item_keys {
 	bottom: 0;
 	left: 140px;
+}
+
+@media screen and (max-width: 660px) {
+	.assess__item_salon {
+		top: 0;
+		left: 40%;
+	}
+	.assess__item_tech {
+		left: 5%;
+	}
+	.assess__item_body {
+		right: 20%;
+	}
+	.assess__item_keys {
+		bottom: 90px;
+		left: 25%;
+	}
 }
 
 .assess__img {
@@ -596,11 +691,12 @@ img {
 
 .assess__feature {
 	position: absolute;
-	top: 0;
+	top: 50%;
 	right: 15px;
-	transform: translateX(100%);
+	transform: translate(100%, -50%);
 	display: block;
 	width: max-content;
+	margin: 0;
 	padding: 10px 0 15px 30px;
 	font-family: "Exo 2", sans-serif;
 	font-weight: 600;
