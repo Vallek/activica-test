@@ -3,15 +3,46 @@
 // Dropdown main menu on mobile
 const popupBtn = document.querySelector('.header__popup-btn');
 const menu = document.querySelector('.header__menu');
+const content = document.querySelector('.header__content');
+const about = document.querySelector('.header__about');
+const contacts = document.querySelector('.header__contacts');
+const action = document.querySelector('.header__action');
 
-popupBtn.addEventListener('click', (el) => {
-	let hidden = menu.style.display == 'none';
+// Elemtns to hide on mobile
+let arr = [];
+arr.push(menu, about, contacts, action);
+
+popupBtn.addEventListener('click', () => {
+	let hidden = content.classList.contains('no-menu');
 	if (!hidden) {
-		menu.style.display = 'none';
+		for (let el of arr) {
+			el.classList.add('visually-hidden');
+		}
+		popupBtn.classList.remove('header__popup-btn_close');
+		content.classList.add('no-menu');
 	} else {
-		menu.style.display = 'block';
+			for (let el of arr) {
+				el.classList.remove('visually-hidden');
+			}
+			popupBtn.classList.add('header__popup-btn_close');
+			content.classList.remove('no-menu');
 	}
 });
+
+function hideNav() {
+	for (let el of arr) {
+		if (el != null &&
+		window.innerWidth <= 1400) {
+			el.classList.add('visually-hidden');
+			content.classList.add('no-menu');
+		} else {
+			el.classList.remove('visually-hidden');
+			content.classList.remove('no-menu');
+		}
+	}
+}
+hideNav();
+window.addEventListener('resize', hideNav);
 
 // Drag steps
 const stepsSlider = document.querySelector('.steps__list');
