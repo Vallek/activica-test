@@ -43,7 +43,9 @@
 	--black: #000;
 	--white: #FFFFFF;
 	--red: #DE0A14;
+	--red-hover: #bf0007;
 	--yellow: #FFD000;
+	--yellow-hover: #f4c121;
 	--grey: #828282;
 	--grey-light: #F4F3F3;
 	--border: #DFDFDF;
@@ -124,6 +126,10 @@ img {
 	color: var(--grey);
 }
 
+.menu__link:hover {
+	color: var(--red);
+}
+
 .header__main {
 	max-width: 1360px;
 	margin: 0 auto;
@@ -131,12 +137,12 @@ img {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: 1em;
+	gap: 90px;
 	justify-content: space-between;
 }
 
 .logo {
-	margin-right: 90px;
+	
 }
 
 @media screen and (max-width: 1360px) {
@@ -146,7 +152,9 @@ img {
 }
 
 .header__loans {
+	display: block;
 	margin: 0;
+	margin-bottom: 10px;
 	font-family: "Exo 2", sans-serif;
 	font-weight: 400;
 	font-size: 14px;
@@ -163,7 +171,19 @@ img {
 	color: var(--black);
 }
 
+.header__address::before {
+	content: '';
+	display: inline-block;
+	width: 14px;
+	height: 18px;
+	margin-right: 9px;
+	background-image: url('../img/location.svg');
+	background-repeat: no-repeat;
+	vertical-align: middle;
+}
+
 .header__contacts {
+	align-self: stretch;
 	display: flex;
 	flex-direction: column;
 	margin-left: auto;
@@ -176,10 +196,15 @@ img {
 }
 
 .header__tel {
+	margin-bottom: 9px;
 	font-family: "Exo 2", sans-serif;
 	font-weight: 600;
 	font-size: 21px;
 	color: var(--black);
+}
+
+.header__tel:hover {
+	color: var(--red);
 }
 
 .header__tel-action {
@@ -189,10 +214,13 @@ img {
 	color: var(--grey);
 }
 
+.header__tel-action:hover {
+	color: var(--red);
+}
+
 .header__action {
 	width: 171px;
 	height: 51px;
-	margin-left: 112px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -203,6 +231,10 @@ img {
 	font-size: 14px;
 	color: #fff;
 	text-decoration: none;
+}
+
+.header__action:hover {
+	background-color: var(--red-hover);
 }
 
 @media screen and (max-width: 1360px) {
@@ -234,7 +266,7 @@ img {
 	margin-bottom: 120px;
 	background-image: url('../img/car_compr.png'), url('../img/bg-circle.svg');
 	background-repeat: no-repeat;
-	background-position: 100% 0%, 160% 140%;
+	background-position: 100% 0%, 162% 130%;
 }
 
 @media screen and (max-width: 1360px) {
@@ -243,7 +275,6 @@ img {
 		background-position: 100% 50%, 140% 20%;
 	}
 }
-
 
 .intro__content {
 	max-width: 1360px;
@@ -271,12 +302,13 @@ img {
 }
 
 .intro__item {
+	max-width: 550px;
+	margin-bottom: 1em;
 	position: relative;
 	font-family: "Exo 2", sans-serif;
 	font-weight: 400;
 	font-size: 18px;
 	color: var(--grey);
-	margin-bottom: 1em;
 }
 
 .intro__item::before {
@@ -303,6 +335,10 @@ img {
 	text-decoration: none;
 }
 
+.intro__action:hover {
+	background-color: var(--yellow-hover);
+}
+
 /* Steps */
 .steps {
 	max-width: 1360px;
@@ -311,7 +347,7 @@ img {
 }
 
 .steps__list {
-	counter-reset: steps 0;
+	counter-reset: steps '0' + 1;
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -342,13 +378,14 @@ img {
 }
 
 .steps__item::before {
-	content: counter(steps);
+	content: '0' counter(steps);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 10px;
 	width: 46px;
 	height: 46px;
+	margin-bottom: 24px;
 	background: var(--yellow);
 	font-family: "Exo 2", sans-serif;
 	font-weight: 600;
@@ -377,6 +414,7 @@ img {
 }
 
 .steps__text {
+	margin: 0;
 	font-family: "Exo 2", sans-serif;
 	font-weight: 400;
 	font-size: 18px;
@@ -536,6 +574,10 @@ img {
 	font-weight: 700;
 	font-size: 16px;
 	color: var(--black);
+}
+
+.assess__action:hover {
+	background-color: var(--yellow-hover);
 }
 
 /* JS */
