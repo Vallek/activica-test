@@ -386,7 +386,6 @@ img {
 /* Intro */
 .intro {
 	max-width: 1920px;
-	min-height: 898px;
 	margin: 0 auto;
 	margin-bottom: 120px;
 	background-image: url('../img/car_compr.png'), url('../img/bg-circle.svg');
@@ -394,20 +393,35 @@ img {
 	background-position: 100% 0%, 162% 130%;
 }
 
-@media screen and (max-width: 1750px) and (min-width: 1080px) {
+@media screen and (min-width: 768px) and (max-width: 1750px) {
 	.intro {
-		background-size: 700px, 50%;
-		background-position: 100% 50%, 140% 30%;
+		background-position: 100% 50%, calc(100% + 250px) 40px;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1400px) {
+	.intro {
+		background-position: 100% 50%, calc(100% + 250px) 120px;
+	}
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1750px) {
+	.intro {
+		background-size: 700px, 520px;
+	}
+}
+
+@media screen and (max-width: 1360px) {
+	.intro {
+		margin-bottom: 45px;
 	}
 }
 
 @media screen and (max-width: 1080px) {
 	.intro {
 		background-size: 400px, 50%;
-		background-position: 100% 50%, 140% 30%;
 	}
 }
-
 
 @media screen and (max-width: 768px) {
 	.intro {
@@ -421,9 +435,9 @@ img {
 	padding: 120px 20px;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (min-width: 1400px) and (max-width: 1750px) {
 	.intro__content {
-		padding: 130px 20px;
+		padding: 40px 20px;
 	}
 }
 
@@ -457,7 +471,7 @@ img {
 	margin-bottom: 50px;
 }
 
-@media screen and (max-width: 1360px) {
+@media screen and (max-width: 1750px) {
 	.intro__heading {
 		font-size: 40px;
 	}
@@ -635,7 +649,7 @@ img {
 @media screen and (max-width: 1360px) {
 	.assess {
 		justify-content: center;
-		padding: 62px 20px 70px 20px;
+		padding: 45px 20px 70px 20px;
 	}
 }
 
