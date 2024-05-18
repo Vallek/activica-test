@@ -1,6 +1,6 @@
 'use strict';
 
-// Dropdown main menu on mobile
+// Dropdown main menu
 const header = document.querySelector('.header');
 const popupBtn = document.querySelector('.header__popup-btn');
 const menu = document.querySelector('.header__menu');
@@ -61,6 +61,28 @@ function hideNav() {
 }
 hideNav();
 window.addEventListener('resize', hideNav);
+
+// Sticky header animation
+const body = document.querySelector('body');
+function scrollHeader() {
+	if (window.innerWidth <= 1400) {
+		// Timeout to wait for right header height value
+			let headerHeightStr = getComputedStyle(content).height;
+			let headerHeight = parseInt(headerHeightStr, 10);
+			// Get header height with and without px (used to shift for animation)
+			let pageTop = body.getBoundingClientRect().top;
+			if (pageTop <= -headerHeight * 2) {
+				header.style.top = '0px';
+				header.classList.add('header_sticky');
+			}
+			else {
+				header.style.top = headerHeightStr;
+				header.classList.remove('header_sticky');
+			}
+	}
+}
+scrollHeader();
+window.addEventListener('scroll', scrollHeader);
 
 // Close when click outside
 document.addEventListener('click', (el) => {
