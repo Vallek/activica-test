@@ -55,6 +55,7 @@
 	font-size: 18px;
 	color: var(--grey);
 	background-color: var(--grey-light);
+	min-width: 360px;
 }
 
 a {
@@ -373,12 +374,20 @@ img {
 	background-position: 100% 0%, 162% 130%;
 }
 
-@media screen and (max-width: 1750px) {
+@media screen and (max-width: 1750px) and (min-width: 1080px) {
 	.intro {
-		background-size: 40%, 50%;
-		background-position: 100% 50%, 140% 20%;
+		background-size: 700px, 50%;
+		background-position: 100% 50%, 140% 30%;
 	}
 }
+
+@media screen and (max-width: 1080px) {
+	.intro {
+		background-size: 400px, 50%;
+		background-position: 100% 50%, 140% 30%;
+	}
+}
+
 
 @media screen and (max-width: 768px) {
 	.intro {
@@ -403,13 +412,14 @@ img {
 		min-height: 700px;
 		background-image: url('../img/car_compr.png'), url('../img/bg-circle.svg');
 		background-repeat: no-repeat;
-		background-size: 40%, 50%;
+		background-size: 45%, 50%;
 		background-position: 20% 85%, 50% 95%;
 	}
 }
 
 @media screen and (max-width: 400px) {
 	.intro__content {
+		background-size: 200px, 50%;
 		padding: 100px 20px;
 	}
 }
@@ -610,6 +620,12 @@ img {
 	}
 }
 
+@media screen and (min-width: 1254px) and (max-width: 1360px) {
+	.assess {
+		background-position: -17% 54%;
+	}
+}
+
 @media screen and (max-width: 660px) {
 	.assess {
 		background-size: 70%;
@@ -622,7 +638,7 @@ img {
 	flex: 1 1 625px;
 	max-width: 625px;
 	min-height: 345px;
-	padding-top: 46px;
+	margin-top: 46px;
 	background-image: url('../img/car-2_compr.png');
 	background-repeat: no-repeat;
 	background-position: 100% 100%;
@@ -632,15 +648,15 @@ img {
 	.assess__graph {
 		background-position: 50% 50%;
 		background-size: 444px 247px;
-		/* max-width: 444px;
-		min-height: 247px; */
+		max-width: 444px;
+		min-height: 247px;
 	}
 }
 
 @media screen and (max-width: 450px) {
 	.assess__graph {
 		background-position: 50% 50%;
-		background-size: 274px 152px;
+		background-size: contain;
 		max-width: 274px;
 		min-height: 152px;
 	}
@@ -663,12 +679,20 @@ img {
 
 .assess__item {
 	position: absolute;
+	z-index: 1;
 }
 
 @media screen and (max-width: 660px) {
 	.assess__item {
 		width: 57px;
 		height: 57px;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.assess__item {
+		width: 35px;
+		height: 35px;
 	}
 }
 
@@ -681,7 +705,7 @@ img {
 	left: 0;
 }
 .assess__item_body {
-	top: 110px;
+	top: 40%;
   right: 90px;
 }
 .assess__item_keys {
@@ -701,8 +725,8 @@ img {
 		right: 20%;
 	}
 	.assess__item_keys {
-		bottom: 90px;
-		left: 25%;
+		bottom: 0;
+		left: 20%;
 	}
 }
 
@@ -742,6 +766,16 @@ img {
 	border-radius: 50%;
 	background-color: var(--white);
 	z-index: -1;
+}
+
+@media screen and (max-width: 660px) {
+	.assess__feature {
+		font-size: 16px;
+		padding: 7px 0 8px 20px;
+	}
+	.assess__feature::after  {
+		width: 25px;
+	}
 }
 
 .assess__content {

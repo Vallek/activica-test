@@ -101,5 +101,6 @@ assessItem.forEach((el) => {
 	});
 	el.addEventListener('mouseout', () => {
 		assessText.classList.add('visually-hidden');
+		el.style.zIndex = 2;
 	});
 });
