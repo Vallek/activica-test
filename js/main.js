@@ -27,20 +27,20 @@ function handleMenu() {
 		content.classList.add('no-menu');
 	} 
 	else {
-			for (let el of arr) {
-				el.classList.remove('visually-hidden');
-			}
-			if (window.innerWidth <= 768) {
-				action.classList.remove('visually-hidden');
-			}
-			action.classList.add('in-menu');
-			popupBtn.classList.add('header__popup-btn_close');
-			content.classList.remove('no-menu');
+		for (let el of arr) {
+			el.classList.remove('visually-hidden');
+		}
+		if (window.innerWidth <= 768) {
+			action.classList.remove('visually-hidden');
+		}
+		action.classList.add('in-menu');
+		popupBtn.classList.add('header__popup-btn_close');
+		content.classList.remove('no-menu');
 	}
 }
 popupBtn.addEventListener('click', handleMenu); 
 
-function hideNav() {
+function handleNav() {
 	for (let el of arr) {
 		if (window.innerWidth <= 1400) {
 			el.classList.add('visually-hidden');
@@ -59,10 +59,10 @@ function hideNav() {
 		action.classList.remove('visually-hidden');
 	}
 }
-hideNav();
-window.addEventListener('resize', hideNav);
+handleNav();
+window.addEventListener('resize', handleNav);
 
-// Sticky header animation
+// Sticky header
 const body = document.querySelector('body');
 function scrollHeader() {
 	if (window.innerWidth <= 1400) {
@@ -91,7 +91,7 @@ document.addEventListener('click', (el) => {
 	if (!header.contains(target)) {
 		popupBtn.classList.remove('header__popup-btn_close');
 		action.classList.remove('in-menu');
-		hideNav();
+		handleNav();
 	}
 });
 
