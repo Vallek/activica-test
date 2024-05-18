@@ -13,8 +13,6 @@ const action = document.querySelector('.header__action');
 let arr = [];
 arr.push(menu, about, contacts);
 
-popupBtn.addEventListener('click', handleMenu); 
-
 function handleMenu() {
 	let hidden = content.classList.contains('no-menu');
 	if (!hidden) {
@@ -40,12 +38,15 @@ function handleMenu() {
 			content.classList.remove('no-menu');
 	}
 }
+popupBtn.addEventListener('click', handleMenu); 
 
 function hideNav() {
 	for (let el of arr) {
 		if (window.innerWidth <= 1400) {
 			el.classList.add('visually-hidden');
 			content.classList.add('no-menu');
+			action.classList.remove('in-menu');
+			popupBtn.classList.remove('header__popup-btn_close');
 		}
 		else {
 			el.classList.remove('visually-hidden');
@@ -66,6 +67,7 @@ document.addEventListener('click', (el) => {
 	let target = el.target;
 	if (!header.contains(target)) {
 		popupBtn.classList.remove('header__popup-btn_close');
+		action.classList.remove('in-menu');
 		hideNav();
 	}
 });
