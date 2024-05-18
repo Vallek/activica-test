@@ -66,12 +66,10 @@ window.addEventListener('resize', hideNav);
 const body = document.querySelector('body');
 function scrollHeader() {
 	if (window.innerWidth <= 1400) {
-		// Timeout to wait for right header height value
 			let headerHeightStr = getComputedStyle(content).height;
 			let headerHeight = parseInt(headerHeightStr, 10);
-			// Get header height with and without px (used to shift for animation)
 			let pageTop = body.getBoundingClientRect().top;
-			if (pageTop <= -headerHeight * 2) {
+			if (pageTop <= -headerHeight) {
 				header.style.top = '0px';
 				header.classList.add('header_sticky');
 			}
@@ -79,10 +77,13 @@ function scrollHeader() {
 				header.style.top = headerHeightStr;
 				header.classList.remove('header_sticky');
 			}
+	} else {
+		header.classList.remove('header_sticky');
 	}
 }
 scrollHeader();
 window.addEventListener('scroll', scrollHeader);
+window.addEventListener('resize', scrollHeader);
 
 // Close when click outside
 document.addEventListener('click', (el) => {
