@@ -121,9 +121,10 @@ assessItem.forEach((el) => {
 	// Показать подписи по наведению
 	el.addEventListener('mouseover', () => {
 		assessText.classList.remove('visually-hidden');
+		el.style.zIndex = 3;
 	});
 	el.addEventListener('mouseout', () => {
 		assessText.classList.add('visually-hidden');
-		el.style.zIndex = 2;
+		el.style.zIndex = '';
 	});
 });
