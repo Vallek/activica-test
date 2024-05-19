@@ -78,6 +78,8 @@ img {
 }
 
 .header__content {
+	display: grid;
+	justify-content: stretch;
 	position: relative;
 }
 
@@ -145,6 +147,7 @@ img {
 }
 
 .header__main {
+	width: 100%;
 	max-width: 1360px;
 	margin: 0 auto;
 	padding: 25px 20px;
@@ -395,7 +398,7 @@ img {
 
 @media screen and (min-width: 768px) and (max-width: 1750px) {
 	.intro {
-		background-position: 100% 50%, calc(100% + 250px) 40px;
+		background-position: 100% 40%, calc(100% + 250px) 40px;
 	}
 }
 
@@ -407,7 +410,7 @@ img {
 
 @media screen and (min-width: 1080px) and (max-width: 1750px) {
 	.intro {
-		background-size: 700px, 520px;
+		background-size: 600px, 520px;
 	}
 }
 
@@ -419,7 +422,7 @@ img {
 
 @media screen and (max-width: 1080px) {
 	.intro {
-		background-size: 400px, 50%;
+		background-size: 400px, 420px 420px;
 	}
 }
 
@@ -435,26 +438,20 @@ img {
 	padding: 120px 20px;
 }
 
-@media screen and (min-width: 1400px) and (max-width: 1750px) {
-	.intro__content {
-		padding: 40px 20px;
-	}
-}
-
 @media screen and (max-width: 768px) {
 	.intro__content {
-		min-height: 700px;
+		min-height: 660px;
 		background-image: url('../img/car_compr.png'), url('../img/bg-circle.svg');
 		background-repeat: no-repeat;
-		background-size: 45%, 50%;
-		background-position: 20% 85%, 50% 95%;
+		background-size: 246px 139px, 202px 202px;
+		background-position: 20% 85%, 40% 86%;
 	}
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
 	.intro__content {
-		background-size: 200px, 50%;
 		padding: 100px 20px;
+		background-position: 20% 700px, 40% 660px;
 	}
 }
 
@@ -662,14 +659,14 @@ img {
 
 @media screen and (max-width: 1254px) {
 	.assess {
-		background-position: 30% 170%;
+		background-position: 30% 180%;
 	}
 }
 
 @media screen and (max-width: 660px) {
 	.assess {
 		background-size: 544px;
-		background-position: -80% 160%;
+		background-position: 50% 160%;
 	}
 }
 
